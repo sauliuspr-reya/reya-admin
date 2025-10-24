@@ -1,0 +1,51 @@
+{
+  "name": "reya-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev  -p 3002",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@auth/core": "^0.34.2",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.1.0",
+    "@mui/x-data-grid": "^8.5.0",
+    "@prisma/client": "^6.0.1",
+    "@radix-ui/react-label": "^2.1.1",
+    "@radix-ui/react-scroll-area": "^1.2.1",
+    "@radix-ui/react-select": "^2.1.2",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@radix-ui/react-tabs": "^1.1.1",
+    "@types/pg": "^8.11.10",
+    "chart.js": "^4.4.7",
+    "class-variance-authority": "^0.7.1",
+    "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.462.0",
+    "next": "^15.0.3",
+    "next-auth": "^4.24.11",
+    "node-vault": "^0.10.2",
+    "pg": "^8.14.1",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.14.1",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "postcss": "^8",
+    "prisma": "^6.0.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

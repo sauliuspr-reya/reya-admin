@@ -1,0 +1,44 @@
+# Gitleaks configuration for Next.js project
+title = "Gitleaks configuration for reya-admin"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for false positives"
+paths = [
+  '''\.env\.example$''',
+  '''node_modules/''',
+  '''^\.next/''',
+  '''package-lock\.json$''',
+  '''pnpm-lock\.yaml$'''
+]
+
+# Ethereum addresses (0x followed by 40 hex chars) are public, not secrets
+regexes = [
+  '''"quote_token":\s*"0x[a-fA-F0-9]{40}"''',
+  '''"0x[a-fA-F0-9]{40}".*quote.*token''',
+]
+
+[[rules]]
+id = "ethereum-private-key"
+description = "Ethereum private key (64 hex chars without 0x prefix)"
+regex = '''(?i)[\'\"]?([a-f0-9]{64})[\'\"]?'''
+entropy = 4.5
+secretGroup = 1
+
+[[rules]]
+id = "vault-token"
+description = "HashiCorp Vault token"
+regex = '''hvs\.[a-zA-Z0-9_-]+'''
+
+[[rules]]
+id = "database-url"
+description = "Database connection string with credentials"
+regex = '''postgresql://[^:]+:[^@]+@'''
+
+[[rules]]
+id = "api-key-header"
+description = "API key in headers or config"
+regex = '''(?i)(api[_-]?key|apikey|x[_-]api[_-]key)[\'"]?\s*[:=]\s*[\'"]?([a-zA-Z0-9_\-]{20,})'''
+secretGroup = 2
